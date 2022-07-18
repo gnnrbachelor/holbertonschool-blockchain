@@ -21,6 +21,8 @@
 
 #define EC_CURVE   NID_secp256k1
 #define EC_PUB_LEN 65
+#define PRIV_FILE "key.pem"
+#define PUB_FILE "key_pub.pem"
 #define PRIVATE "/key.pem"
 #define PUBLIC "/key_pub.pem"
 

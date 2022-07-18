@@ -12,14 +12,24 @@
 int ec_save(EC_KEY *key, char const *folder)
 {
 	FILE *priv_file, *pub_file;
-	char priv_path[256] = {0};
-	char pub_path[256] = {0};
+	char *priv_path = NULL, *pub_path = NULL;
 
 
 	if (!key || !folder)
 		return (0);
 
 	mkdir(folder, S_IROTH | S_IXOTH | S_IRWXU | S_IRWXG);
+
+	priv_path = calloc(strlen(folder) + strlen(PRIV_FILE) + 1, 1);
+	if (!priv_path)
+		return (0);
+
+	pub_path = calloc(strlen(folder) + strlen(PUB_FILE) + 1, 1);
+	if (!pub_path)
+	{
+		free(priv_path);
+		return (0);
+	}
 
 	strcpy(priv_path, folder);
 	strcat(priv_path, PRIVATE);

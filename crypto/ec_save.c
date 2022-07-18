@@ -18,13 +18,13 @@ int ec_save(EC_KEY *key, char const *folder)
 	if (!key || !folder)
 		return (0);
 
-	mkdir(folder, S_IROTH | S_IXOTH | S_IRWXU | S_IRWXG);
+	mkdir(folder, 0777);
 
-	priv_path = calloc(strlen(folder) + strlen(PRIV_FILE) + 1, 1);
+	priv_path = calloc(strlen(folder) + strlen(PRIVATE) + 1, 1);
 	if (!priv_path)
 		return (0);
 
-	pub_path = calloc(strlen(folder) + strlen(PUB_FILE) + 1, 1);
+	pub_path = calloc(strlen(folder) + strlen(PUBLIC) + 1, 1);
 	if (!pub_path)
 	{
 		free(priv_path);

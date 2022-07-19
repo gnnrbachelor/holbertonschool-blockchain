@@ -28,6 +28,13 @@
 #define SIG_MAX_LEN    72
 
 
+/**
+ * struct sig_s - Sig struct
+ * @sig: Sig
+ * @len: length
+ *
+ */
+
 typedef struct sig_s
 {
 	uint8_t     sig[SIG_MAX_LEN];
@@ -42,7 +49,9 @@ uint8_t *ec_to_pub(EC_KEY const *key, uint8_t pub[EC_PUB_LEN]);
 EC_KEY *ec_from_pub(uint8_t const pub[EC_PUB_LEN]);
 int ec_save(EC_KEY *key, char const *folder);
 EC_KEY *ec_load(char const *folder);
-uint8_t *ec_sign(EC_KEY const *key, uint8_t const *msg, size_t msglen, sig_t *sig);
-int ec_verify(EC_KEY const *key, uint8_t const *msg, size_t msglen, sig_t const *sig);
+uint8_t *ec_sign(EC_KEY const *key, uint8_t const *msg,
+	 size_t msglen, sig_t *sig);
+int ec_verify(EC_KEY const *key, uint8_t const *msg,
+	 size_t msglen, sig_t const *sig);
 
 #endif

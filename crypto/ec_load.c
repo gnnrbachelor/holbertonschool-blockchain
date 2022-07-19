@@ -1,5 +1,12 @@
 #include "hblk_crypto.h"
 
+/**
+ * pub_load - Loads public key
+ * @folder: Folder
+ * @key: Key
+ * Return: EC_KEY stuct or NULL
+ */
+
 static EC_KEY *pub_load(char const *folder, EC_KEY *key)
 {
 	FILE *pub_file = NULL;
@@ -24,6 +31,13 @@ static EC_KEY *pub_load(char const *folder, EC_KEY *key)
 	fclose(pub_file);
 	return (key);
 }
+
+/**
+ * priv_load - Loads private key
+ * @folder: Folder
+ * @key: Key
+ * Return: EC_KEY stuct or NULL
+ */
 
 
 static EC_KEY *priv_load(char const *folder, EC_KEY *key)

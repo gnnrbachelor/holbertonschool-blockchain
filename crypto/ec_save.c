@@ -1,5 +1,12 @@
 #include "hblk_crypto.h"
 
+/**
+ * priv_save - Saves Private Key
+ * @key: Key
+ * @folder: Folder
+ * Return: 1 or 0
+ */
+
 static int priv_save(EC_KEY *key, char const *folder)
 {
 
@@ -24,6 +31,14 @@ static int priv_save(EC_KEY *key, char const *folder)
 	return (1);
 
 }
+
+/**
+ * pub_save - Saves Public Key
+ * @key: Key
+ * @folder: Folder
+ * Return: 1 or 0
+ */
+
 
 static int pub_save(EC_KEY *key, char const *folder)
 {
